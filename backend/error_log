@@ -1,0 +1,5 @@
+[22-Oct-2025 10:54:23 Asia/Dhaka] PHP Warning:  require(D:\xampp8240\htdocs\Project\shopdown\backend/vendor/autoload.php): Failed to open stream: No such file or directory in D:\xampp8240\htdocs\Project\shopdown\backend\artisan on line 10
+[22-Oct-2025 10:54:23 Asia/Dhaka] PHP Fatal error:  Uncaught Error: Failed opening required 'D:\xampp8240\htdocs\Project\shopdown\backend/vendor/autoload.php' (include_path='D:\xampp8240\php\PEAR') in D:\xampp8240\htdocs\Project\shopdown\backend\artisan:10
+Stack trace:
+#0 {main}
+  thrown in D:\xampp8240\htdocs\Project\shopdown\backend\artisan on line 10

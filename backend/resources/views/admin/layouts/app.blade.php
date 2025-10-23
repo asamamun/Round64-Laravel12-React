@@ -84,7 +84,10 @@
         
         <div class="navbar-nav">
             <div class="nav-item text-nowrap">
-                <a class="nav-link px-3" href="{{ route('admin.logout') }}">Sign out</a>
+                <form method="POST" action="{{ route('admin.logout') }}" style="display: inline;">
+                    @csrf
+                    <button type="submit" class="nav-link px-3 btn btn-link" style="color: rgba(255, 255, 255, 0.75); text-decoration: none;">Sign out</button>
+                </form>
             </div>
         </div>
     </header>

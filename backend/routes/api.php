@@ -15,17 +15,15 @@ use App\Models\Product;
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/register', [AuthController::class, 'register']);
 
-// Public API routes for categories, brands, and products
-Route::prefix('public')->group(function () {
-    Route::get('/categories', [CategoryController::class, 'index']);
-    Route::get('/categories/{category}', [CategoryController::class, 'show']);
-    
-    Route::get('/brands', [BrandController::class, 'index']);
-    Route::get('/brands/{brand}', [BrandController::class, 'show']);
-    
-    Route::get('/products', [ProductController::class, 'index']);
-    Route::get('/products/{product}', [ProductController::class, 'show']);
-});
+// Public API routes for categories, brands, and products (without 'public' prefix)
+Route::get('/categories', [CategoryController::class, 'index']);
+Route::get('/categories/{category}', [CategoryController::class, 'show']);
+
+Route::get('/brands', [BrandController::class, 'index']);
+Route::get('/brands/{brand}', [BrandController::class, 'show']);
+
+Route::get('/products', [ProductController::class, 'index']);
+Route::get('/products/{product}', [ProductController::class, 'show']);
 
 // Test route to verify our models are working
 Route::get('/test-models', function () {

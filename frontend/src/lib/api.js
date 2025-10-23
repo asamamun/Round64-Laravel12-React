@@ -67,11 +67,11 @@ export const authApi = {
 // Category API functions
 export const categoryApi = {
   getAll: async () => {
-    const response = await apiClient.get('api/public/categories');
+    const response = await apiClient.get('api/categories');
     return response.data;
   },
   getById: async (id) => {
-    const response = await apiClient.get(`api/public/categories/${id}`);
+    const response = await apiClient.get(`api/categories/${id}`);
     return response.data;
   },
 };
@@ -79,11 +79,11 @@ export const categoryApi = {
 // Brand API functions
 export const brandApi = {
   getAll: async () => {
-    const response = await apiClient.get('api/public/brands');
+    const response = await apiClient.get('api/brands');
     return response.data;
   },
   getById: async (id) => {
-    const response = await apiClient.get(`api/public/brands/${id}`);
+    const response = await apiClient.get(`api/brands/${id}`);
     return response.data;
   },
 };
@@ -91,11 +91,11 @@ export const brandApi = {
 // Product API functions
 export const productApi = {
   getAll: async (params = {}) => {
-    const response = await apiClient.get('api/public/products', { params });
+    const response = await apiClient.get('api/products', { params });
     return response.data;
   },
   getById: async (id) => {
-    const response = await apiClient.get(`api/public/products/${id}`);
+    const response = await apiClient.get(`api/products/${id}`);
     return response.data;
   },
 };
