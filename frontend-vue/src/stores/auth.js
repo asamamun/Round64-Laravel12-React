@@ -41,7 +41,10 @@ export const useAuthStore = defineStore('auth', {
         // Get CSRF cookie first
         await api.getCSRFCookie()
         
-        const response = await api.register(userData)
+        // Remove password_confirmation from the data sent to backend
+        const { password_confirmation, ...registerData } = userData;
+        
+        const response = await api.register(registerData)
         
         if (response.success) {
           return { success: true, message: response.message }
