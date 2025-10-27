@@ -30,7 +30,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, watch } from 'vue'
 import { useCartStore } from '../stores/cart'
 import api from '../services/api'
 
@@ -39,11 +39,23 @@ const products = ref([])
 const loading = ref(false)
 const error = ref('')
 
+// Add a flag to prevent multiple simultaneous loads
+const isLoading = ref(false)
+
 onMounted(async () => {
   await loadProducts()
 })
 
+// Watch for changes that might trigger re-fetching
+watch(products, (newProducts) => {
+  // Add any logic here if needed when products change
+}, { deep: false })
+
 const loadProducts = async () => {
+  // Prevent multiple simultaneous loads
+  if (isLoading.value) return
+  
+  isLoading.value = true
   loading.value = true
   error.value = ''
   
@@ -55,6 +67,7 @@ const loadProducts = async () => {
     console.error(err)
   } finally {
     loading.value = false
+    isLoading.value = false
   }
 }
 

@@ -79,8 +79,13 @@ const getBrands = async () => {
 
 // Product API functions
 const getProducts = async (params = {}) => {
-  const response = await apiClient.get('api/products', { params })
-  return response.data
+  try {
+    const response = await apiClient.get('api/products', { params })
+    return response.data
+  } catch (error) {
+    console.error('Error fetching products:', error)
+    throw error
+  }
 }
 
 const getProductById = async (id) => {
